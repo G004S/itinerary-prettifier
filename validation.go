@@ -9,15 +9,18 @@ import (
 )
 
 
-func ArgsNumberValidation() error {
+func ArgsNumberValidation() (bool, error) {
 	if len(os.Args) > 1 && os.Args[1] == "-h" {
 			fmt.Println("itinerary usage:\ngo run . ./input.txt ./output.txt ./airport-lookup.csv")
 			os.Exit(0)
 	}
-	if len(os.Args) != 4{
-		return errors.New("Invalid number of arguments")
+	if len(os.Args) == 5 && os.Args[4] == "--stats"{
+		return true, nil
 	}
-	return nil
+	if len(os.Args) != 4{
+		return false, errors.New("Invalid number of arguments")
+	}
+	return false, nil
 }
 
 func ArgsPathValidation() error {
@@ -49,7 +52,7 @@ func LookupFileValidation() ([][]string, error) {
 	expectedHeader:= []string{"name","iso_country","municipality","icao_code","iata_code","coordinates"}
 	for i,v := range header{
 		if v != expectedHeader[i]{
-			return nil, errors.New("Airport lookup malformed HEADER")
+			return nil, errors.New("Airport lookup malformed")
 		}
 	}
 
@@ -63,12 +66,12 @@ func LookupFileValidation() ([][]string, error) {
 			return nil, errors.New("Airport lookup malformed")
 		}
 		if len(row) != 6 {
-			return nil, errors.New("Airport lookup malformed CELL MISSING")
+			return nil, errors.New("Airport lookup malformed")
 		}
 
 		for _,v := range row{
 			if strings.TrimSpace(v) == ""{
-				return nil, errors.New("Airport lookup malformed CELL BLANK")
+				return nil, errors.New("Airport lookup malformed")
 			}
 		}
 		
@@ -77,3 +80,4 @@ func LookupFileValidation() ([][]string, error) {
 
 	return lookupTable, nil
 }
+
