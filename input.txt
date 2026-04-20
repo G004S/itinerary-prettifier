@@ -1,6 +1,6 @@
 Your flight departs from *##CYCY, and your destination is ##BIKF.
 Your flight departs from #HAJ, and your destination is *##BIKF.
-Your flight departs from *#HGU, and your destination is *##AYWK.
+Your flight departs from *#HGU, and your destination is ##AYWK.
 
 
 

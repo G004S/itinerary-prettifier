@@ -135,12 +135,18 @@ func GetAirportName(airportCode string, lookup [][]string, citymark bool) string
 		for _,cell:= range row{
 			if airportCode == cell{
 				match = row[0]
-				if len(match)>24{
-					if match[len(match)-21:] == "International Airport"{   //Check if it's "Airport" or "International Airport" and trim it
-						match = match[:len(match)-22]	
-					}else if match[len(match)-8:] == "Airport"{
+				if citymark{
+					if len(match)>24{
+						if match[len(match)-21:] == "International Airport"{   //Check if it's "Airport" or "International Airport" and trim it
+						match = match[:len(match)-22]
+					}else if match[len(match)-7:] == "Airport"{
 						match = match[:len(match)-8]
 					}
+					}else{
+						if match[len(match)-7:] == "Airport"{
+						match = match[:len(match)-8]
+						}
+					}	
 				}
 			}
 		}

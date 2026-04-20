@@ -1,6 +1,6 @@
-Your flight departs from [32mClyde River Airport[0m, and your destination is [32mKeflavik[0m.
+Your flight departs from [32mClyde River[0m, and your destination is [32mKeflavik International Airport[0m.
 Your flight departs from [32mHannover Airport[0m, and your destination is [32mKeflavik[0m.
-Your flight departs from [32mMount Hagen Kagamuga Airport[0m, and your destination is [32mWewak[0m.
+Your flight departs from [32mMount Hagen Kagamuga[0m, and your destination is [32mWewak International Airport[0m.
 
 1. [31m09 May 2022[0m
 2. 07:18PM [33m(-02:00)[0m
